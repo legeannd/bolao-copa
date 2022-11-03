@@ -5,6 +5,7 @@
     "prisma-erd-generator": "^1.2.2"
   },
   "dependencies": {
+    "@fastify/cors": "^8.1.1",
     "@prisma/client": "^4.5.0"
   }
 }
