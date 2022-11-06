@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { VStack, Icon, useToast, FlatList } from "native-base";
 import { Octicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native'; 
+import { useNavigation, useFocusEffect } from '@react-navigation/native'; 
 
 import { Button } from "../components/Button";
 import { Header } from "../components/Header";
@@ -36,9 +36,9 @@ export function Polls() {
     }
   }
 
-  useEffect(() => {
+  useFocusEffect(useCallback(() => {
     fetchPolls()
-  }, [])
+  }, []))
 
   return (
     <VStack flex={1} bgColor="gray.900">
