@@ -27,7 +27,7 @@ export function Polls() {
       console.log(error)
 
       toast.show({
-        title: 'Não foi possível carregar os bolões',
+        title: 'Não foi possível carregar os bolões.',
         placement: 'top',
         bgColor: 'red.500'
       })
@@ -55,7 +55,12 @@ export function Polls() {
         <FlatList 
           data={polls}
           keyExtractor={item => item.id}
-          renderItem={({ item }) => <PoolCard data={item} />}
+          renderItem={({ item }) => (
+            <PoolCard 
+              data={item} 
+              onPress={() => navigate('details', { id: item.id })}
+            />
+          )}
           showsVerticalScrollIndicator={false}
           ListEmptyComponent={() => <EmptyPoolList />}
           _contentContainerStyle={{ pb: 10}}
